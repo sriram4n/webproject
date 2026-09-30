@@ -1,116 +1,540 @@
-*{
-    color:white
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Colour palette:
+   Navy  #14213d  (header, text)
+   Gold  #fca311  (buttons, highlights)
+   Cream #fdf6e3  (light backgrounds)
+*/
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
 }
-body{
-    background-color: black;
-    padding-top: 40px;
+
+body {
+    overflow-x: hidden;
 }
-#navigation{
-    position: fixed;
-    width: 100%;
-    top:0;
-    left:0;
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #14213d;
+    padding: 12px 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-.Container{
+
+.logo {
+    color: #fca311;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: 500;
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0,0,0,0.8);
+    position: relative;
 }
-.Navbar{
-    display: flex;
-    gap: 13px;
-}
-.Navbar a{
-    text-decoration: none;
-}
-#logo{
-    color: goldenrod;
-    font-weight: 600;
-    font-size: x-large;
-    text-decoration: none;
-}
-#home{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    background-image: url("Assets/pinksky.jpg");
-    background-size: cover;
+.navbar a::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background: #fca311;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.5s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.header-btn .sign-in {
+    background-color: #fca311;
+    color: #14213d;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    border: 2px solid #fca311;
+    transition: 0.3s;
+}
+
+.header-btn .sign-in:hover {
+    background-color: transparent;
+    color: #fca311;
+}
+
+/* =========================
+   HOME SECTION
+========================= */
+
+.Home {
+    min-height: 100vh;
+    position: relative;
+    background: url("Assets/pinksky.jpg");
+    background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 50px;
+    padding: 80px 100px;
+    color: #fff;
 }
 
-.HeroDiv{
-    align-items: center;
-    background-color: rgba(0,0,0,0.4);
-    padding-left: 10vw;
-    padding-right: 10vw;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-    border-radius: 25px;
+/* dark overlay */
+.Home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
-.SubHero{
-    display: flex;
-    justify-content: center;
-    margin: 0;
+
+.text {
+    position: relative;
+    z-index: 2;
 }
-.HeroText{
-    display: flex;
-    justify-content: center;
-    margin: 0;
+
+.text h1 {
+    font-size: 3.2rem;
+    line-height: 1.2;
+    color: #fff;
 }
-#signup{
-    display: flex;
-    justify-self: center;
-    margin-top: 20px;
-    background-color: goldenrod;
-    text-decoration: none;
-    color:black;
+
+.text span {
+    color: #fca311;
+}
+
+.text p {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.1rem;
+    max-width: 500px;
+}
+
+.btn {
+    display: inline-block;
+    background: #fca311;
+    color: #14213d;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #fff;
+}
+
+/* =========================
+   TRIP FORM
+========================= */
+
+.form-container {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    backdrop-filter: blur(10px);
+}
+
+.form-container h2 {
+    color: #fca311;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #fca311;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    outline: none;
+    border: 2px solid #fca311;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #fca311;
+    color: #14213d;
+    font-size: 1rem;
+    font-weight: 500;
     border: none;
-    border-radius: 4px;
-    width: 50%;
-    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #fff;
+}
+
+/* =========================
+   HEADINGS (used by all sections)
+========================= */
+
+.heading {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.heading span {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fca311;
+}
+
+.heading h1 {
+    font-size: 2rem;
+    color: #14213d;
+    margin: 0.5rem auto;
+    max-width: 800px;
+}
+
+/* =========================
+   SERVICE SECTION
+========================= */
+
+.service {
+    padding: 50px 0;
+    background-color: #fdf6e3;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 50px;
+    margin: 3rem 0;
+}
+
+.service-container .box {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.service-container .box:hover {
+    transform: scale(1.05);
+}
+
+.service-container .box i {
+    font-size: 40px;
+    padding: 15px;
+    background: #fdf6e3;
+    border-radius: 50%;
+    color: #fca311;
+    transition: 0.3s;
+}
+
+.service-container .box i:hover {
+    background: #fca311;
+    color: #fff;
+}
+
+.service-container .box h2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #14213d;
+    margin-top: 15px;
+}
+
+.service-container .box p {
+    color: #666;
+    margin-top: 10px;
+}
+
+/* =========================
+   PLACES SECTION
+========================= */
+
+.places {
+    padding: 0 100px;
+}
+
+.places-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.places-container .box {
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 1px 4px 41px rgba(0, 0, 0, 0.2);
+}
+
+.places-container .box img {
+    width: 100%;
+    height: 200px;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.places-container .box h2 {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #14213d;
+    margin-top: 10px;
+}
+
+.places-container .box h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.2rem 0 0.5rem;
+    color: #fca311;
+}
+
+.places-container .box .btn {
+    display: flex;
+    justify-content: center;
+    background: #14213d;
+    color: #fff;
+    margin: 3px;
+}
+
+.places-container .box .btn:hover {
+    background: #fca311;
+    color: #14213d;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about {
+    padding: 50px 0;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 0 50px;
+    align-items: center;
+}
+
+.about-img img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   REVIEWS SECTION
+========================= */
+
+.reviews-container {
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.reviews-container .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 0.5rem;
+    box-shadow: 1px 4px 41px rgba(0, 0, 0, 0.2);
+}
+
+.reviews-container .box h2 {
+    font-size: 1.1rem;
+    color: #14213d;
+    margin-bottom: 0.5rem;
+}
+
+.reviews-container .box p {
+    font-style: italic;
+}
+
+.reviews-container .box .stars .bx {
+    color: #fca311;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter {
+    background: #14213d;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 200px;
+    margin-top: 50px;
 }
-footer {
-    background-color: rgb(20, 20, 20);
-    margin: 30px;
-    padding: 40px 70px;
-    border-radius: 25px;
+
+.newsletter h2 {
+    color: #fff;
+    font-size: 1.8rem;
 }
-.Bottom {
-    margin-top: auto;
-    align-self: flex-start;
-}
-.FooterContent {
+
+.newsletter .box {
     display: flex;
     justify-content: space-between;
-    padding-right: 300px;
+    width: 350px;
+    margin-top: 1rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 4px 8px;
 }
-footer h3 {
-    color: goldenrod;
-}
-footer p,
-footer a {
-    color: #aaa;
-    font-size: 14px;
-}
-footer a {
-    display: block;
-    text-decoration: none;
-    margin: 15px 0;
-}
-footer a:hover {
-    color: white;
-}
-footer hr {
+
+.newsletter .box input {
     border: none;
-    border-top: 2px solid #555;
-    margin: 25px 0;
+    outline: none;
 }
-.Bottom p {
-    margin: 10px 0;
+
+.newsletter .box .btn {
+    margin-top: 0;
+    padding: 8px 20px;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.copyright {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social a {
+    color: #14213d;
+    padding: 10px;
+    font-size: 21px;
+}
+
+.social a:hover {
+    color: #fca311;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1000px) {
+    header {
+        padding: 12px 30px;
+    }
+
+    .Home {
+        grid-template-columns: 1fr;
+        padding: 60px 50px;
+    }
+
+    .form-container {
+        margin: 0 auto;
+    }
+
+    .text {
+        text-align: center;
+    }
+
+    .text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .places {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar {
+        gap: 0;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .Home {
+        padding: 50px 20px;
+    }
+
+    .text h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .newsletter .box {
+        width: 90%;
+    }
+
+    .copyright {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
