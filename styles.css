@@ -96,7 +96,7 @@ header {
 .Home {
     min-height: 100vh;
     position: relative;
-    background: url("Assets/pinksky.jpg");
+    background: url("Assets/evening.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -241,7 +241,7 @@ header {
 
 .service {
     padding: 50px 0;
-    background-color: #fdf6e3;
+    background-color: #fff;
 }
 
 .service-container {
@@ -282,7 +282,7 @@ header {
 .service-container .box h2 {
     font-size: 1.4rem;
     font-weight: 500;
-    color: #14213d;
+    color: #fca311;
     margin-top: 15px;
 }
 
@@ -331,6 +331,14 @@ header {
     font-weight: 600;
     margin: 0.2rem 0 0.5rem;
     color: #fca311;
+}
+
+.places-container .box p {
+    min-height: 48px;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 3px 12px;
 }
 
 .places-container .box .btn {
