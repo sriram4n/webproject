@@ -4,58 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mumbai - City Of Dreams</title>
+    <meta name="description" content="Discover Mumbai, the City of Dreams: seafronts, heritage, street food and the places you must visit.">
+    <meta name="theme-color" content="#0b0a1a">
+    <link rel="icon" href="Assets/logo.svg" type="image/svg+xml">
+
+    <!-- fonts, icons and map library are stored locally so the site works offline -->
+    <link rel="stylesheet" href="Assets/vendor/fonts/fonts.css">
+    <link rel="stylesheet" href="Assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="Assets/vendor/leaflet/leaflet.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
     <!-- Header -->
-    <header>
-        <a href="#Home" class="logo">CityOfDreams</a>
+    <header id="header">
+        <a href="#Home" class="logo">
+            <img src="Assets/logo.svg" alt="" class="logo-mark">
+            <span class="logo-text">CityOf<em>Dreams</em></span>
+        </a>
 
-        <ul class="navbar">
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#service">Plan</a></li>
-            <li><a href="#Places">Places</a></li>
-            <li><a href="#About">About</a></li>
-            <li><a href="#Reviews">Reviews</a></li>
-        </ul>
+        <nav>
+            <ul class="navbar" id="navbar">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#service">Plan</a></li>
+                <li><a href="#Places">Places</a></li>
+                <li><a href="#Shopping">Shopping</a></li>
+                <li><a href="#Map">Map</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Reviews">Reviews</a></li>
+            </ul>
+        </nav>
 
         <div class="header-btn">
             <a href="#" class="sign-in">Sign In</a>
+            <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+                <i class="bx bx-menu"></i>
+            </button>
         </div>
     </header>
 
 
     <!-- Home Section -->
     <section class="Home" id="Home">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-watermark" aria-hidden="true">मुंबई</div>
 
-        <div class="text">
-            <h1><span>Discover</span> Mumbai,<br>the City Of Dreams</h1>
-            <p>Where the sea meets the skyline and every street has a story.</p>
-            <p>Explore the food, the history and the people of India's busiest city.</p>
-            <a href="#Places" class="btn">Explore Now</a>
-        </div>
+        <div class="hero-inner">
+            <div class="text">
+                <p class="hero-live" id="hero-live">
+                    <span class="dot"></span>
+                    <span>18.9220° N, 72.8347° E</span>
+                    <span class="sep">·</span>
+                    <span id="mumbai-time">Mumbai</span>
+                    <span id="mumbai-weather"></span>
+                </p>
 
-        <!-- Trip Form -->
-        <div class="form-container">
-            <h2>Plan Your Trip</h2>
+                <h1>Discover Mumbai,<br>the City of <em>Dreams</em></h1>
+                <p>Where the sea meets the skyline and every street has a story.
+                   Explore the food, the history and the people of India's busiest city.</p>
 
-            <form action="#" method="POST">
-                <select name="place" required>
-                    <option value="" disabled selected>Select a place</option>
-                    <option value="Gateway">Gateway of India</option>
-                    <option value="Marine">Marine Drive</option>
-                    <option value="Juhu">Juhu Beach</option>
-                    <option value="Caves">Elephanta Caves</option>
-                </select>
+                <div class="hero-actions">
+                    <a href="#Places" class="btn">Explore Now <i class="bx bx-right-arrow-alt"></i></a>
+                    <a href="#Map" class="btn btn-ghost"><i class="bx bx-map-alt"></i> Open the map</a>
+                </div>
+            </div>
 
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="number" name="days" placeholder="Number of days" min="1" required>
+            <!-- Trip Form -->
+            <div class="form-container">
+                <h2>Plan Your Trip</h2>
+                <p class="form-sub">Tell us where you're headed, and we'll send you a route.</p>
 
-                <button type="submit">Send</button>
-            </form>
+                <form action="#" method="POST" id="trip-form">
+                    <label>
+                        <span>Destination</span>
+                        <select name="place" required>
+                            <option value="" disabled selected>Select a place</option>
+                            <option value="Gateway">Gateway of India</option>
+                            <option value="Marine">Marine Drive</option>
+                            <option value="Juhu">Juhu Beach</option>
+                            <option value="Caves">Elephanta Caves</option>
+                            <option value="CSMT">CSMT Station</option>
+                            <option value="SGNP">Sanjay Gandhi National Park</option>
+                            <option value="Colaba">Colaba Causeway</option>
+                            <option value="Bandra">Bandra (Linking Road)</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </label>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email" placeholder="you@email.com" required>
+                        </label>
+                        <label class="days">
+                            <span>Days</span>
+                            <input type="number" name="days" placeholder="3" min="1" required>
+                        </label>
+                    </div>
+
+                    <button type="submit">Send <i class="bx bx-send"></i></button>
+                    <p class="form-msg" id="trip-msg" role="status"></p>
+                </form>
+            </div>
         </div>
 
     </section>
@@ -71,20 +125,29 @@
 
         <div class="service-container">
 
-            <div class="box">
-                <i class="bx bx-map"></i>
+            <div class="box reveal">
+                <div class="box-top">
+                    <i class="bx bx-map"></i>
+                    <b>01</b>
+                </div>
                 <h2>Pick a Place</h2>
                 <p>Choose a spot from the places listed in the next section.</p>
             </div>
 
-            <div class="box">
-                <i class="bx bx-train"></i>
+            <div class="box reveal">
+                <div class="box-top">
+                    <i class="bx bx-train"></i>
+                    <b>02</b>
+                </div>
                 <h2>Take the Local</h2>
                 <p>Mumbai's local trains are the fastest and cheapest way around.</p>
             </div>
 
-            <div class="box">
-                <i class="bx bx-restaurant"></i>
+            <div class="box reveal">
+                <div class="box-top">
+                    <i class="bx bx-restaurant"></i>
+                    <b>03</b>
+                </div>
                 <h2>Eat Street Food</h2>
                 <p>Try vada pav, pav bhaji and bhel puri at every corner.</p>
             </div>
@@ -104,54 +167,187 @@
 
         <div class="places-container">
 
-            <div class="box">
-                <img src="Assets/GatewayofIndia.jpg" alt="Gateway of India">
-                <h2>Gateway of India</h2>
-                <h3>Colaba</h3>
-                <p>Admire this iconic waterfront monument and enjoy views of Mumbai Harbour.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
+            <article class="box big reveal" data-place="0">
+                <img src="Assets/web/gatewayofindia.jpg" alt="Gateway of India" loading="lazy">
+                <div class="box-content">
+                    <span class="tag">Landmark</span>
+                    <h2>Gateway of India</h2>
+                    <h3><i class="bx bxs-map"></i> Colaba</h3>
+                    <p>Admire this iconic waterfront monument and enjoy views of Mumbai Harbour.</p>
+                    <button class="btn-map" data-place="0">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+            </article>
 
-            <div class="box">
-                <img src="Assets/pinksky.jpg" alt="Marine Drive">
-                <h2>Marine Drive</h2>
-                <h3>Nariman Point</h3>
-                <p>Take a relaxing seaside walk along the famous Queen's Necklace at sunset.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
+            <article class="box wide reveal" data-place="1">
+                <img src="Assets/web/pinksky.jpg" alt="Marine Drive" loading="lazy">
+                <div class="box-content">
+                    <span class="tag">Seafront</span>
+                    <h2>Marine Drive</h2>
+                    <h3><i class="bx bxs-map"></i> Nariman Point</h3>
+                    <p>Take a relaxing seaside walk along the famous Queen's Necklace at sunset.</p>
+                    <button class="btn-map" data-place="1">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+            </article>
 
-            <div class="box">
-                <img src="Assets/juhu.jpg" alt="Juhu Beach">
-                <h2>Juhu Beach</h2>
-                <h3>Juhu</h3>
-                <p>Enjoy the beach breeze, colourful sunsets, and delicious Mumbai street food.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
+            <article class="box reveal" data-place="2">
+                <img src="Assets/web/juhu.jpg" alt="Juhu Beach" loading="lazy">
+                <div class="box-content">
+                    <span class="tag">Beach</span>
+                    <h2>Juhu Beach</h2>
+                    <h3><i class="bx bxs-map"></i> Juhu</h3>
+                    <p>Enjoy the beach breeze, colourful sunsets, and delicious Mumbai street food.</p>
+                    <button class="btn-map" data-place="2">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+            </article>
 
-            <div class="box">
-                <img src="Assets/elephant caves.jpg" alt="Elephanta Caves">
-                <h2>Elephanta Caves</h2>
-                <h3>Elephanta Island</h3>
-                <p>Explore ancient rock-cut temples and impressive sculptures on a scenic island.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
+            <article class="box reveal" data-place="4">
+                <img src="Assets/web/csmt-station.jpg" alt="Chhatrapati Shivaji Terminus" loading="lazy">
+                <div class="box-content">
+                    <span class="tag">UNESCO</span>
+                    <h2>CSMT Station</h2>
+                    <h3><i class="bx bxs-map"></i> Fort</h3>
+                    <p>See the grand Victorian Gothic architecture of this historic railway landmark.</p>
+                    <button class="btn-map" data-place="4">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+            </article>
 
-            <div class="box">
-                <img src="Assets/csmt station.jpg" alt="Chhatrapati Shivaji Terminus">
-                <h2>CSMT Station</h2>
-                <h3>Fort</h3>
-                <p>See the grand Victorian Gothic architecture of this historic railway landmark.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
+            <article class="box reveal" data-place="3">
+                <img src="Assets/web/elephant-caves.jpg" alt="Elephanta Caves" loading="lazy">
+                <div class="box-content">
+                    <span class="tag">UNESCO</span>
+                    <h2>Elephanta Caves</h2>
+                    <h3><i class="bx bxs-map"></i> Elephanta Island</h3>
+                    <p>Explore ancient rock-cut temples and impressive sculptures on a scenic island.</p>
+                    <button class="btn-map" data-place="3">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+            </article>
 
-            <div class="box">
-                <img src="Assets/nationalPark.jpg" alt="Sanjay Gandhi National Park">
-                <h2>National Park</h2>
-                <h3>Borivali</h3>
-                <p>Escape the city with forest trails, wildlife, and the ancient Kanheri Caves.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
+            <article class="box reveal" data-place="5">
+                <img src="Assets/web/nationalpark.jpg" alt="Sanjay Gandhi National Park" loading="lazy">
+                <div class="box-content">
+                    <span class="tag">Nature</span>
+                    <h2>National Park</h2>
+                    <h3><i class="bx bxs-map"></i> Borivali</h3>
+                    <p>Escape the city with forest trails, wildlife, and the ancient Kanheri Caves.</p>
+                    <button class="btn-map" data-place="5">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                </div>
+            </article>
 
+            <a href="#Map" class="box map-cta wide reveal">
+                <i class="bx bx-map-pin"></i>
+                <div>
+                    <h2>See them all on the map</h2>
+                    <p>Eight spots, one city, from Colaba to Borivali.</p>
+                </div>
+                <i class="bx bx-right-arrow-alt arrow"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Shopping Section -->
+    <section class="shopping" id="Shopping">
+
+        <div class="heading">
+            <span>Shop the Streets</span>
+            <h1>Where Mumbai goes shopping</h1>
+        </div>
+
+        <div class="shop-container">
+
+            <article class="shop-card reveal">
+                <div class="shop-media">
+                    <img src="Assets/web/colaba-antiques.jpg"
+                         alt="Antique cameras and clocks on a stall at Colaba Causeway" class="shop-main" loading="lazy">
+                    <img src="Assets/web/colaba-street.jpg"
+                         alt="Colaba Causeway in the evening" class="shop-inset" loading="lazy">
+                    <span class="shop-no">01</span>
+                </div>
+
+                <div class="shop-body">
+                    <span class="tag">Street Market</span>
+                    <h2>Colaba Causeway</h2>
+                    <h3><i class="bx bxs-map"></i> Colaba, a short walk from the Gateway</h3>
+                    <p>South Mumbai's most famous shopping street. Its arcades are packed with stalls selling
+                       junk jewellery, antiques, bags, clothes and old books, and between finds you can
+                       refuel at classic cafés like Leopold and Mondegar.</p>
+
+                    <ul class="chips">
+                        <li>Junk jewellery</li>
+                        <li>Antiques</li>
+                        <li>Bags</li>
+                        <li>Clothes</li>
+                        <li>Books</li>
+                    </ul>
+
+                    <div class="shop-foot">
+                        <span class="tip"><i class="bx bx-bulb"></i> Bargain, always. Start at about half the asking price.</span>
+                        <button class="btn-map" data-place="6">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                    </div>
+
+                    <p class="credit">
+                        Photos: <a href="https://commons.wikimedia.org/wiki/File:Antiques_being_sold_on_Colaba_Causeway.jpg" target="_blank" rel="noopener">ghoseb</a> (CC BY-SA 2.0),
+                        <a href="https://commons.wikimedia.org/wiki/File:Colaba_Causeway,Mumbai_-_panoramio.jpg" target="_blank" rel="noopener">Udaykumar PR</a> (CC BY 3.0), via Wikimedia Commons
+                    </p>
+                </div>
+            </article>
+
+            <article class="shop-card reveal">
+                <div class="shop-media">
+                    <img src="Assets/web/bandra-shoe-market.jpg"
+                         alt="Shoppers at the footwear stalls on Linking Road, Bandra" class="shop-main" loading="lazy">
+                    <img src="Assets/web/bandra-bangles.jpg"
+                         alt="A stall full of colourful bangles in Bandra" class="shop-inset" loading="lazy">
+                    <span class="shop-no">02</span>
+                </div>
+
+                <div class="shop-body">
+                    <span class="tag">Street Shopping</span>
+                    <h2>Bandra</h2>
+                    <h3><i class="bx bxs-map"></i> Linking Road &amp; Hill Road, Bandra West</h3>
+                    <p>The Queen of the Suburbs. Linking Road is lined with stalls of footwear and trendy
+                       clothes at street prices, while Hill Road is full of bags, accessories and bangles.
+                       End the day by the sea at Bandstand or Carter Road.</p>
+
+                    <ul class="chips">
+                        <li>Footwear</li>
+                        <li>Street fashion</li>
+                        <li>Bags</li>
+                        <li>Bangles &amp; accessories</li>
+                    </ul>
+
+                    <div class="shop-foot">
+                        <span class="tip"><i class="bx bx-bulb"></i> Go in the evening, when the stalls light up.</span>
+                        <button class="btn-map" data-place="7">Show on map <i class="bx bx-right-arrow-alt"></i></button>
+                    </div>
+
+                    <p class="credit">
+                        Photos: <a href="https://commons.wikimedia.org/wiki/File:Bandra_Shoe_Market.jpg" target="_blank" rel="noopener">erin</a> (CC BY 2.0),
+                        <a href="https://commons.wikimedia.org/wiki/File:Bandra_Linking_road.jpg" target="_blank" rel="noopener">CC-by-sa PlaneMad/Wikimedia</a>
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- Map Section -->
+    <section class="map-section" id="Map">
+
+        <div class="heading">
+            <span>Find Your Way</span>
+            <h1>Mumbai, pinned on the map</h1>
+        </div>
+
+        <div class="map-container reveal">
+            <ol class="map-list" id="map-list">
+                <!-- filled by script.js -->
+            </ol>
+            <div class="map" id="map" role="region" aria-label="Map of Mumbai places"></div>
         </div>
 
     </section>
@@ -160,18 +356,19 @@
     <!-- About Section -->
     <section class="about" id="About">
 
-        <div class="heading">
-            <span>About</span>
-            <h1>The City Of Dreams</h1>
-        </div>
-
         <div class="about-container">
 
-            <div class="about-img">
-                <img src="Assets/city.jpg" alt="Mumbai skyline">
+            <div class="about-img reveal">
+                <img src="Assets/web/city.jpg" alt="Mumbai skyline" class="img-main" loading="lazy">
+                <img src="Assets/web/bw.jpg" alt="Mumbai at night, reflected in the lake" class="img-float" loading="lazy">
+                <span class="about-stamp">Bombay → Mumbai<br><small>Renamed in 1995</small></span>
             </div>
 
-            <div class="about-text">
+            <div class="about-text reveal">
+                <div class="heading left">
+                    <span>About</span>
+                    <h1>The City Of Dreams</h1>
+                </div>
                 <p>
                     Mumbai is the capital of Maharashtra and the financial
                     capital of India. It was once seven islands that were joined
@@ -183,7 +380,14 @@
                     here to chase their dreams, which is why it is called the
                     City Of Dreams.
                 </p>
-                <a href="#" class="btn">Read More</a>
+
+                <div class="stats">
+                    <div><b>7</b><span>islands joined into one city</span></div>
+                    <div><b>1853</b><span>Asia's first passenger train left from here</span></div>
+                    <div><b>3.6 km</b><span>of Marine Drive's Queen's Necklace</span></div>
+                </div>
+
+                <a href="https://en.wikipedia.org/wiki/Mumbai" target="_blank" rel="noopener" class="btn">Read More <i class="bx bx-right-arrow-alt"></i></a>
             </div>
 
         </div>
@@ -201,40 +405,58 @@
 
         <div class="reviews-container">
 
-            <div class="box">
-                <h2>Aditya</h2>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
+            <div class="box reveal">
+                <i class="bx bxs-quote-alt-left quote"></i>
                 <p>The sunset at Marine Drive was unforgettable. The food was even better.</p>
+                <div class="reviewer">
+                    <span class="avatar">A</span>
+                    <div>
+                        <h2>Aditya</h2>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="box">
-                <h2>Rahul</h2>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                </div>
+            <div class="box reveal">
+                <i class="bx bxs-quote-alt-left quote"></i>
                 <p>A busy city, but full of life. The local train ride was an adventure.</p>
+                <div class="reviewer">
+                    <span class="avatar">R</span>
+                    <div>
+                        <h2>Rahul</h2>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="box">
-                <h2>Disha</h2>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                </div>
+            <div class="box reveal">
+                <i class="bx bxs-quote-alt-left quote"></i>
                 <p>The Gateway of India and Elephanta Caves made for a perfect day trip.</p>
+                <div class="reviewer">
+                    <span class="avatar">D</span>
+                    <div>
+                        <h2>Disha</h2>
+                        <div class="stars">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -244,27 +466,36 @@
 
     <!-- Newsletter Section -->
     <section class="newsletter">
-        <h2>Subscribe to Newsletter</h2>
+        <div class="newsletter-inner reveal">
+            <span class="eyebrow">Stay in the loop</span>
+            <h2>Subscribe to Newsletter</h2>
+            <p>Monsoon walks, festival dates and new food spots, once a month.</p>
 
-        <div class="box">
-            <input type="text" placeholder="Enter your Email..">
-            <a href="#" class="btn">Subscribe</a>
+            <form class="box" id="news-form">
+                <input type="email" placeholder="Enter your Email.." aria-label="Email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+            <p class="form-msg" id="news-msg" role="status"></p>
         </div>
     </section>
 
 
     <!-- Copyright and Social Media -->
-    <div class="copyright">
-        <p>&#169; 2026 CityOfDreams || All Rights Reserved</p>
+    <footer class="copyright">
+        <a href="#Home" class="logo">
+            <img src="Assets/logo.svg" alt="" class="logo-mark">
+            <span class="logo-text">CityOf<em>Dreams</em></span>
+        </a>
+        <p>&#169; 2026 CityOfDreams · All Rights Reserved</p>
 
         <div class="social">
-            <a href="#"><i class="bx bxl-instagram"></i></a>
-            <a href="#"><i class="bx bxl-discord-alt"></i></a>
-            <a href="#"><i class="bx bxl-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" aria-label="Discord"><i class="bx bxl-discord-alt"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bx bxl-youtube"></i></a>
         </div>
-    </div>
+    </footer>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="Assets/vendor/leaflet/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
