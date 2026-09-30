@@ -1,0 +1,116 @@
+*{
+    color:white
+}
+body{
+    background-color: black;
+    padding-top: 40px;
+}
+#navigation{
+    position: fixed;
+    width: 100%;
+    top:0;
+    left:0;
+}
+.Container{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+}
+.Navbar{
+    display: flex;
+    gap: 13px;
+}
+.Navbar a{
+    text-decoration: none;
+}
+#logo{
+    color: goldenrod;
+    font-weight: 600;
+    font-size: x-large;
+    text-decoration: none;
+}
+#home{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("Assets/pinksky.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.HeroDiv{
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    border-radius: 25px;
+}
+.SubHero{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+.HeroText{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+#signup{
+    display: flex;
+    justify-self: center;
+    margin-top: 20px;
+    background-color: goldenrod;
+    text-decoration: none;
+    color:black;
+    border: none;
+    border-radius: 4px;
+    width: 50%;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+footer {
+    background-color: rgb(20, 20, 20);
+    margin: 30px;
+    padding: 40px 70px;
+    border-radius: 25px;
+}
+.Bottom {
+    margin-top: auto;
+    align-self: flex-start;
+}
+.FooterContent {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 300px;
+}
+footer h3 {
+    color: goldenrod;
+}
+footer p,
+footer a {
+    color: #aaa;
+    font-size: 14px;
+}
+footer a {
+    display: block;
+    text-decoration: none;
+    margin: 15px 0;
+}
+footer a:hover {
+    color: white;
+}
+footer hr {
+    border: none;
+    border-top: 2px solid #555;
+    margin: 25px 0;
+}
+.Bottom p {
+    margin: 10px 0;
+}
