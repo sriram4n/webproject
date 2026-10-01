@@ -16,7 +16,7 @@ const places = {
         { name: 'Gateway of India', area: 'Colaba', img: 'Assets/GatewayofIndia.jpg', text: 'The iconic arch on the waterfront, overlooking Mumbai Harbour.' },
         { name: 'Marine Drive', area: 'Nariman Point', img: 'Assets/pinksky.jpg', text: "A seaside walk along the Queen's Necklace at sunset." },
         { name: 'Juhu Beach', area: 'Juhu', img: 'Assets/juhu.jpg', text: 'Sea breeze, colourful sunsets and famous street food.' },
-        { name: 'Elephanta Caves', area: 'Elephanta Island', img: 'Assets/elephant caves.jpg', text: 'Ancient rock-cut temples on a short ferry ride away.' },
+        { name: 'Elephanta Caves', area: 'Elephanta Island', img: 'Assets/places/elephant caves.jpg', text: 'Ancient rock-cut temples on a short ferry ride away.' },
         { name: 'CSMT Station', area: 'Fort', img: 'Assets/csmt station.jpg', text: 'A grand Victorian Gothic railway landmark.' }
     ],
     nagpur: [
