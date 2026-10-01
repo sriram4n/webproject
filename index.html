@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mumbai - City Of Dreams</title>
+    <title>Maharashtra - City Of Dreams</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <a href="#Home" class="logo">CityOfDreams</a>
-
+    <header id="header">
+        <a href="#Home" class="logo">
+            <img src="Assets/logo.svg" alt="" class="logo-mark">
+            <span class="logo-text">CityOf<em>Dreams</em></span>
+        </a>
         <ul class="navbar">
             <li><a href="#Home">Home</a></li>
             <li><a href="#Places">Places</a></li>
@@ -25,117 +25,114 @@
         </div>
     </header>
 
-
-    <!-- Home Section -->
     <section class="Home" id="Home">
 
         <div class="text">
-            <h1><span>Discover</span> Maharashtra,<br>the City Of Dreams</h1>
+            <h1><span>Discover</span> Maharashtra,<br>the Land Of Dreams</h1>
             <p>Where the sea meets the skyline and every street has a story.</p>
-            <p>Explore the food, the history and the people of India's busiest city.</p>
+            <p>Explore the food, the history and the people of Mumbai, Nagpur, Sambhajinagar and Nashik.</p>
             <a href="#Places" class="btn">Explore Now</a>
         </div>
 
     </section>
 
-    <!-- Places Section -->
     <section class="places" id="Places">
 
         <div class="heading">
             <span>Top Spots</span>
-            <h1>Places you must visit in Mumbai</h1>
+            <h1>Places you must visit</h1>
         </div>
 
-        <div class="places-container">
+        <div class="city-tabs">
+            <button class="city-btn active" data-city="mumbai">Mumbai</button>
+            <button class="city-btn" data-city="nagpur">Nagpur</button>
+            <button class="city-btn" data-city="sambhajinagar">Sambhajinagar</button>
+            <button class="city-btn" data-city="nashik">Nashik</button>
+        </div>
 
-            <div class="box">
-                <img src="Assets/GatewayofIndia.jpg" alt="Gateway of India">
-                <h2>Gateway of India</h2>
-                <h3>Colaba</h3>
-                <p>Admire this iconic waterfront monument and enjoy views of Mumbai Harbour.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
-
-            <div class="box">
-                <img src="Assets/pinksky.jpg" alt="Marine Drive">
-                <h2>Marine Drive</h2>
-                <h3>Nariman Point</h3>
-                <p>Take a relaxing seaside walk along the famous Queen's Necklace at sunset.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
-
-            <div class="box">
-                <img src="Assets/juhu.jpg" alt="Juhu Beach">
-                <h2>Juhu Beach</h2>
-                <h3>Juhu</h3>
-                <p>Enjoy the beach breeze, colourful sunsets, and delicious Mumbai street food.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
-
-            <div class="box">
-                <img src="Assets/elephant caves.jpg" alt="Elephanta Caves">
-                <h2>Elephanta Caves</h2>
-                <h3>Elephanta Island</h3>
-                <p>Explore ancient rock-cut temples and impressive sculptures on a scenic island.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
-
-            <div class="box">
-                <img src="Assets/csmt station.jpg" alt="Chhatrapati Shivaji Terminus">
-                <h2>CSMT Station</h2>
-                <h3>Fort</h3>
-                <p>See the grand Victorian Gothic architecture of this historic railway landmark.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
-
-            <div class="box">
-                <img src="Assets/nationalPark.jpg" alt="Sanjay Gandhi National Park">
-                <h2>National Park</h2>
-                <h3>Borivali</h3>
-                <p>Escape the city with forest trails, wildlife, and the ancient Kanheri Caves.</p>
-                <a href="#" class="btn">Know More</a>
-            </div>
-
+        <div class="slider" id="placesSlider">
+            <div class="slider-track"></div>
+            <button class="arrow prev" aria-label="Previous">&lt;</button>
+            <button class="arrow next" aria-label="Next">&gt;</button>
+            <div class="slide-count"></div>
         </div>
 
     </section>
 
-
-    <!-- About Section -->
     <section class="about" id="About">
 
         <div class="heading">
             <span>About</span>
-            <h1>The City Of Dreams</h1>
+            <h1>Why these cities are famous</h1>
         </div>
 
-        <div class="about-container">
+        <div class="slider" id="aboutSlider">
+            <div class="slider-track">
 
-            <div class="about-img">
-                <img src="Assets/city.jpg" alt="Mumbai skyline">
+                <div class="slide">
+                    <img src="Assets/cities/mumbai.jpg" alt="Mumbai skyline at night">
+                    <div class="slide-panel">
+                        <h4>The City Of Dreams</h4>
+                        <h3>Mumbai</h3>
+                        <p>The capital of Maharashtra and the financial capital of India. Once seven separate islands, it is now one of the busiest cities in the world.</p>
+                        <ul>
+                            <li>Home of Bollywood, India's biggest film industry</li>
+                            <li>Bombay Stock Exchange, the oldest in Asia</li>
+                            <li>Vada pav, pav bhaji and the local trains</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="Assets/cities/nagpur.jpg" alt="Zero Mile Stone, Nagpur">
+                    <div class="slide-panel">
+                        <h4>The Orange City</h4>
+                        <h3>Nagpur</h3>
+                        <p>Sitting almost exactly at the centre of India, Nagpur is marked by the Zero Mile Stone. It is also the winter capital of Maharashtra.</p>
+                        <ul>
+                            <li>Famous for its sweet Nagpur oranges</li>
+                            <li>Geographical centre of India (Zero Mile)</li>
+                            <li>Gateway to the Tadoba and Pench tiger reserves</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="Assets/cities/sambhajinagar.jpg" alt="Delhi Gate, Chhatrapati Sambhajinagar">
+                    <div class="slide-panel">
+                        <h4>The City Of Gates</h4>
+                        <h3>Chhatrapati Sambhajinagar</h3>
+                        <p>Formerly Aurangabad, the city once had over 50 gates. It is called the tourism capital of Maharashtra.</p>
+                        <ul>
+                            <li>Ajanta and Ellora caves, both UNESCO World Heritage Sites</li>
+                            <li>Bibi Ka Maqbara, the "Taj of the Deccan"</li>
+                            <li>Hand-woven Himroo shawls and Paithani sarees</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="Assets/cities/nashik.jpg" alt="Nashik city">
+                    <div class="slide-panel">
+                        <h4>The Wine Capital Of India</h4>
+                        <h3>Nashik</h3>
+                        <p>A holy city on the banks of the Godavari. In the Ramayana, Lord Rama lived here at Panchavati during his exile.</p>
+                        <ul>
+                            <li>Hosts the Kumbh Mela every 12 years</li>
+                            <li>Trimbakeshwar, one of the 12 Jyotirlingas</li>
+                            <li>Vineyards, grapes and onions grown across the region</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="about-text">
-                <p>
-                    Mumbai is the capital of Maharashtra and the financial
-                    capital of India. It was once seven islands that were joined
-                    together to form one big city.
-                </p>
-                <p>
-                    It is home to Bollywood, the biggest film industry in the
-                    world by number of films. People from all over India come
-                    here to chase their dreams, which is why it is called the
-                    City Of Dreams.
-                </p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-
+            <button class="arrow prev" aria-label="Previous">&lt;</button>
+            <button class="arrow next" aria-label="Next">&gt;</button>
+            <div class="slide-count"></div>
         </div>
 
     </section>
 
-
-    <!-- Reviews Section -->
     <section class="reviews" id="Reviews">
 
         <div class="heading">
@@ -147,37 +144,19 @@
 
             <div class="box">
                 <h2>Aditya</h2>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
                 <p>The sunset at Marine Drive was unforgettable. The food was even better.</p>
             </div>
 
             <div class="box">
                 <h2>Rahul</h2>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                </div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>A busy city, but full of life. The local train ride was an adventure.</p>
             </div>
 
             <div class="box">
                 <h2>Disha</h2>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                </div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>The Gateway of India and Elephanta Caves made for a perfect day trip.</p>
             </div>
 
@@ -185,8 +164,6 @@
 
     </section>
 
-
-    <!-- Newsletter Section -->
     <section class="newsletter">
         <h2>Subscribe to Newsletter</h2>
 
@@ -196,19 +173,16 @@
         </div>
     </section>
 
-
-    <!-- Copyright and Social Media -->
     <div class="copyright">
         <p>&#169; 2026 CityOfDreams || All Rights Reserved</p>
 
         <div class="social">
-            <a href="#"><i class="bx bxl-instagram"></i></a>
-            <a href="#"><i class="bx bxl-discord-alt"></i></a>
-            <a href="#"><i class="bx bxl-youtube"></i></a>
+            <a href="#">Instagram</a>
+            <a href="#">Discord</a>
+            <a href="#">YouTube</a>
         </div>
     </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
 </body>
 </html>
