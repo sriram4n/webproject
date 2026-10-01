@@ -479,13 +479,20 @@ header.scrolled {
 }
 
 .social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: var(--text);
-    padding: 10px;
-    font-weight: 600;
+    padding: 8px;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
 }
 
 .social a:hover {
     color: var(--gold);
+    background-color: rgba(244, 185, 66, 0.12);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 1000px) {
