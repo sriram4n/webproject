@@ -113,10 +113,9 @@ header.scrolled {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
     padding: 80px 100px;
     color: #1A1D29;
 }
@@ -136,6 +135,7 @@ header.scrolled {
 .text {
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .text h1 {
@@ -152,6 +152,8 @@ header.scrolled {
     margin: 0.5rem 0 1rem;
     font-size: 1.1rem;
     max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn {
@@ -167,63 +169,6 @@ header.scrolled {
 
 .btn:hover {
     background: #fff;
-}
-
-/* =========================
-   TRIP FORM
-========================= */
-
-.form-container {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    margin-left: auto;
-    backdrop-filter: blur(10px);
-}
-
-.form-container h2 {
-    color: #fca311;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-container input,
-.form-container select {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 1px solid #fca311;
-    background-color: #f9f9f9;
-    margin-bottom: 15px;
-}
-
-.form-container input:focus,
-.form-container select:focus {
-    outline: none;
-    border: 2px solid #fca311;
-}
-
-.form-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #fca311;
-    color: #14213d;
-    font-size: 1rem;
-    font-weight: 500;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.form-container button:hover {
-    background-color: #fff;
 }
 
 /* =========================
@@ -434,4 +379,59 @@ header.scrolled {
 
 .social a:hover {
     color: #fca311;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1000px) {
+    header {
+        padding: 12px 30px;
+    }
+
+    .Home {
+        padding: 60px 50px;
+    }
+
+    .places {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar {
+        gap: 0;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .Home {
+        padding: 50px 20px;
+    }
+
+    .text h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .newsletter .box {
+        width: 90%;
+    }
+
+    .copyright {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

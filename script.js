@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	sr.reveal('.text', { delay: 200, origin: 'top' });
-	sr.reveal('.form-container', { delay: 800, origin: 'left' });
 	sr.reveal('.heading', { delay: 800, origin: 'top' });
 	sr.reveal('.service-container .box', { delay: 600, origin: 'top' });
 	sr.reveal('.places-container .box', { delay: 800, origin: 'top' });
