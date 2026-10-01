@@ -300,7 +300,6 @@ header.scrolled {
     background: rgba(19, 28, 51, 0.75);
     backdrop-filter: blur(8px);
     border: 1px solid var(--line);
-    border-left: 4px solid var(--gold);
 }
 
 .slide-panel h4 {
