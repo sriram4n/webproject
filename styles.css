@@ -100,10 +100,9 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
     padding: 80px 100px;
     color: #fff;
 }
@@ -123,6 +122,7 @@ header {
 .text {
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .text h1 {
@@ -139,6 +139,8 @@ header {
     margin: 0.5rem 0 1rem;
     font-size: 1.1rem;
     max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn {
@@ -154,63 +156,6 @@ header {
 
 .btn:hover {
     background: #fff;
-}
-
-/* =========================
-   TRIP FORM
-========================= */
-
-.form-container {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    margin-left: auto;
-    backdrop-filter: blur(10px);
-}
-
-.form-container h2 {
-    color: #fca311;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-container input,
-.form-container select {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 1px solid #fca311;
-    background-color: #f9f9f9;
-    margin-bottom: 15px;
-}
-
-.form-container input:focus,
-.form-container select:focus {
-    outline: none;
-    border: 2px solid #fca311;
-}
-
-.form-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #fca311;
-    color: #14213d;
-    font-size: 1rem;
-    font-weight: 500;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.form-container button:hover {
-    background-color: #fff;
 }
 
 /* =========================
@@ -488,21 +433,7 @@ header {
     }
 
     .Home {
-        grid-template-columns: 1fr;
         padding: 60px 50px;
-    }
-
-    .form-container {
-        margin: 0 auto;
-    }
-
-    .text {
-        text-align: center;
-    }
-
-    .text p {
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .places {
